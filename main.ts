@@ -4,9 +4,15 @@ function inputParameter () {
     while (!(input.buttonIsPressed(Button.A))) {
         if (input.pinIsPressed(TouchPin.P0)) {
             a += -1
+            if (a == 0) {
+                a = -1
+            }
             showNumber(a)
         } else if (input.pinIsPressed(TouchPin.P2)) {
             a += 1
+            if (a == 0) {
+                a = 1
+            }
             showNumber(a)
         }
     }
