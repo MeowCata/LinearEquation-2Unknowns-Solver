@@ -4,47 +4,47 @@ input.onPinPressed(TouchPin.P0, function () {
 })
 function inputParameter () {
     basic.showString("a")
-    basic.showNumber(a)
+    showNumber(a)
     while (!(input.pinIsPressed(TouchPin.P2))) {
         if (input.buttonIsPressed(Button.A)) {
             a += -1
-            basic.showNumber(a)
+            showNumber(a)
         } else if (input.buttonIsPressed(Button.B)) {
             a += 1
-            basic.showNumber(a)
+            showNumber(a)
         }
     }
     basic.clearScreen()
     basic.pause(200)
-    basic.showNumber(a)
+    showNumber(a)
     basic.showString("b")
-    basic.showNumber(b)
+    showNumber(b)
     while (!(input.pinIsPressed(TouchPin.P2))) {
         if (input.buttonIsPressed(Button.A)) {
             b += -1
-            basic.showNumber(b)
+            showNumber(b)
         } else if (input.buttonIsPressed(Button.B)) {
             b += 1
-            basic.showNumber(b)
+            showNumber(b)
         }
     }
     basic.clearScreen()
     basic.pause(200)
-    basic.showNumber(b)
+    showNumber(b)
     basic.showString("c")
-    basic.showNumber(c)
+    showNumber(c)
     while (!(input.pinIsPressed(TouchPin.P2))) {
         if (input.buttonIsPressed(Button.A)) {
             c += -1
-            basic.showNumber(c)
+            showNumber(c)
         } else if (input.buttonIsPressed(Button.B)) {
             c += 1
-            basic.showNumber(c)
+            showNumber(c)
         }
     }
     basic.clearScreen()
     basic.pause(200)
-    basic.showNumber(c)
+    showNumber(c)
     basic.clearScreen()
 }
 function solve () {
@@ -93,6 +93,7 @@ function solve () {
                 . . . . .
                 `)
             basic.pause(200)
+            basic.showString(" ")
             if (x1 % 1 == 0) {
                 basic.showString("x1=" + x1)
             } else {
@@ -108,6 +109,15 @@ function solve () {
                 basic.showString("x2=" + temp1 + "/" + temp2)
             }
         }
+    }
+}
+function showNumber (number: number) {
+    if (number >= 0) {
+        basic.showNumber(number)
+    } else {
+        basic.showString("-")
+        basic.clearScreen()
+        basic.showNumber(0 - number)
     }
 }
 let temp2 = 0
