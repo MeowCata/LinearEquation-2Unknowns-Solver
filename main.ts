@@ -1,3 +1,7 @@
+input.onPinPressed(TouchPin.P0, function () {
+    inputParameter()
+    solve()
+})
 function inputParameter () {
     basic.showString("a")
     basic.showNumber(a)
@@ -70,26 +74,44 @@ function solve () {
         x1 = (0 - b + Math.sqrt(delta)) / (2 * a)
         x2 = (0 - b - Math.sqrt(delta)) / (2 * a)
         if (x1 % 1 == 0 && x2 % 1 == 0) {
+            basic.showLeds(`
+                . . # . .
+                . . # . .
+                . . # . .
+                . . . . .
+                . . # . .
+                `)
+            basic.pause(200)
             basic.showString("x1=" + x1)
             basic.showString("x2=" + x2)
         } else {
+            basic.showLeds(`
+                . # . # .
+                # # . # #
+                . . . . .
+                . # # # .
+                . . . . .
+                `)
+            basic.pause(200)
             if (x1 % 1 == 0) {
                 basic.showString("x1=" + x1)
             } else {
-                basic.showString("x1=" + (0 - b + Math.sqrt(delta)) + "/" + 2 * a)
+                temp1 = 0 - b + Math.sqrt(delta)
+                temp2 = 2 * a
+                basic.showString("x1=" + temp1 + "/" + temp2)
             }
             if (x2 % 1 == 0) {
                 basic.showString("x2=" + x2)
             } else {
-                basic.showString("x2=" + (0 - b - Math.sqrt(delta)) + "/" + 2 * a)
+                temp1 = 0 - b - Math.sqrt(delta)
+                temp2 = 2 * a
+                basic.showString("x2=" + temp1 + "/" + temp2)
             }
         }
     }
 }
-input.onPinPressed(TouchPin.P1, function () {
-    inputParameter()
-    solve()
-})
+let temp2 = 0
+let temp1 = 0
 let x2 = 0
 let x1 = 0
 let delta = 0
@@ -102,5 +124,7 @@ b = 0
 delta = 0
 x1 = 0
 x2 = 0
-pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive)
+temp1 = 0
+temp2 = 0
+pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)
 pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
