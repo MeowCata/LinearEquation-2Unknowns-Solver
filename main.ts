@@ -67,6 +67,7 @@ function solve () {
 }
 input.onPinPressed(TouchPin.P1, function () {
     inputParameter()
+    solve()
 })
 let delta = 0
 let b = 0
