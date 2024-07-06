@@ -61,7 +61,8 @@ function solve () {
         basic.pause(500)
         basic.clearScreen()
     } else {
-        basic.showString("x1=")
+        basic.showString("x1=" + (0 - b + Math.sqrt(delta)) / (2 * a))
+        basic.showString("x2=" + (0 - b - Math.sqrt(delta)) / (2 * a))
     }
 }
 input.onPinPressed(TouchPin.P1, function () {
