@@ -44,9 +44,8 @@ function inputParameter () {
     basic.clearScreen()
 }
 function solve () {
-    basic.showString("a=" + a + " b=" + b + " c=" + c)
+    basic.showString("" + a + " " + b + " " + c)
     delta = b * b - 4 * (a * c)
-    basic.showString("d=" + delta)
     if (delta < 0) {
         basic.showLeds(`
             # # . # #
