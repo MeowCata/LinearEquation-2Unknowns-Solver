@@ -1,50 +1,42 @@
-input.onPinPressed(TouchPin.P0, function () {
-    inputParameter()
-    solve()
-})
 function inputParameter () {
     basic.showString("a")
     showNumber(a)
-    while (!(input.pinIsPressed(TouchPin.P2))) {
-        if (input.buttonIsPressed(Button.A)) {
+    while (!(input.buttonIsPressed(Button.A))) {
+        if (input.pinIsPressed(TouchPin.P0)) {
             a += -1
             showNumber(a)
-        } else if (input.buttonIsPressed(Button.B)) {
+        } else if (input.pinIsPressed(TouchPin.P2)) {
             a += 1
             showNumber(a)
         }
     }
-    basic.clearScreen()
     basic.pause(200)
     showNumber(a)
     basic.showString("b")
     showNumber(b)
-    while (!(input.pinIsPressed(TouchPin.P2))) {
-        if (input.buttonIsPressed(Button.A)) {
+    while (!(input.buttonIsPressed(Button.A))) {
+        if (input.pinIsPressed(TouchPin.P0)) {
             b += -1
             showNumber(b)
-        } else if (input.buttonIsPressed(Button.B)) {
+        } else if (input.pinIsPressed(TouchPin.P2)) {
             b += 1
             showNumber(b)
         }
     }
-    basic.clearScreen()
     basic.pause(200)
     showNumber(b)
     basic.showString("c")
     showNumber(c)
-    while (!(input.pinIsPressed(TouchPin.P2))) {
-        if (input.buttonIsPressed(Button.A)) {
+    while (!(input.buttonIsPressed(Button.A))) {
+        if (input.pinIsPressed(TouchPin.P0)) {
             c += -1
             showNumber(c)
-        } else if (input.buttonIsPressed(Button.B)) {
+        } else if (input.pinIsPressed(TouchPin.P2)) {
             c += 1
             showNumber(c)
         }
     }
-    basic.clearScreen()
-    basic.pause(200)
-    showNumber(c)
+    basic.pause(400)
     basic.clearScreen()
 }
 function solve () {
@@ -70,6 +62,7 @@ function solve () {
             `)
         basic.pause(1000)
         basic.clearScreen()
+        basic.showString("d=" + delta)
     } else {
         x1 = (0 - b + Math.sqrt(delta)) / (2 * a)
         x2 = (0 - b - Math.sqrt(delta)) / (2 * a)
@@ -93,7 +86,6 @@ function solve () {
                 . . . . .
                 `)
             basic.pause(200)
-            basic.showString(" ")
             if (x1 % 1 == 0) {
                 basic.showString("x1=" + x1)
             } else {
@@ -111,12 +103,15 @@ function solve () {
         }
     }
 }
+input.onButtonPressed(Button.B, function () {
+    inputParameter()
+    solve()
+})
 function showNumber (number: number) {
     if (number >= 0) {
         basic.showNumber(number)
     } else {
         basic.showString("-")
-        basic.clearScreen()
         basic.showNumber(0 - number)
     }
 }
