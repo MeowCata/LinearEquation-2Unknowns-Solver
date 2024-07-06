@@ -9,7 +9,6 @@ function inputParameter () {
             a += 1
             basic.showNumber(a)
         }
-        basic.pause(50)
     }
     basic.clearScreen()
     basic.pause(200)
@@ -24,7 +23,6 @@ function inputParameter () {
             b += 1
             basic.showNumber(b)
         }
-        basic.pause(50)
     }
     basic.clearScreen()
     basic.pause(200)
@@ -39,7 +37,6 @@ function inputParameter () {
             c += 1
             basic.showNumber(c)
         }
-        basic.pause(50)
     }
     basic.clearScreen()
     basic.pause(200)
