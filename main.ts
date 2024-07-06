@@ -139,3 +139,4 @@ temp1 = 0
 temp2 = 0
 pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)
 pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
+led.setBrightness(100)
